@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "transaction_key": "deprecated",
+    "request_id": "99dbdfba-952f-4ea2-8396-af5c54be865e",
+    "sha256": "113be606cf0ab353b66ba9e31f77846e8e5245f80fcbf351946376de6260a818",
+    "created": "2025-10-01T12:15:01.792Z",
+    "duration": 1.5673125,
+    "channels": 1,
+    "models": [
+      "cb9bdbf0-4eb9-4b90-97a3-70e66ca3382a"
+    ],
+    "model_info": {
+      "cb9bdbf0-4eb9-4b90-97a3-70e66ca3382a": {
+        "name": "2-general-nova",
+        "version": "2023-12-25.20413",
+        "arch": "nova-2"
+      }
+    }
+  },
+  "results": {
+    "channels": [
+      {
+        "alternatives": [
+          {
+            "transcript": "Привіт! Як справи?",
+            "confidence": 0.95947266,
+            "words": [
+              {
+                "word": "привіт",
+                "start": 0.08,
+                "end": 0.56,
+                "confidence": 0.9111328,
+                "punctuated_word": "Привіт!"
+              },
+              {
+                "word": "як",
+                "start": 0.56,
+                "end": 1.04,
+                "confidence": 0.95947266,
+                "punctuated_word": "Як"
+              },
+              {
+                "word": "справи",
+                "start": 1.04,
+                "end": 1.54,
+                "confidence": 0.9970703,
+                "punctuated_word": "справи?"
+              }
+            ],
+            "paragraphs": {
+              "transcript": "\nПривіт! Як справи?",
+              "paragraphs": [
+                {
+                  "sentences": [
+                    {
+                      "text": "Привіт!",
+                      "start": 0.08,
+                      "end": 0.56
+                    },
+                    {
+                      "text": "Як справи?",
+                      "start": 0.56,
+                      "end": 1.54
+                    }
+                  ],
+                  "num_words": 3,
+                  "start": 0.08,
+                  "end": 1.54
+                }
+              ]
+            }
+          }
+        ],
+        "detected_language": "uk",
+        "language_confidence": 0.39210603
+      }
+    ],
+    "utterances": [
+      {
+        "start": 0.08,
+        "end": 1.54,
+        "confidence": 0.9558919,
+        "channel": 0,
+        "transcript": "Привіт! Як справи?",
+        "words": [
+          {
+            "word": "привіт",
+            "start": 0.08,
+            "end": 0.56,
+            "confidence": 0.9111328,
+            "punctuated_word": "Привіт!"
+          },
+          {
+            "word": "як",
+            "start": 0.56,
+            "end": 1.04,
+            "confidence": 0.95947266,
+            "punctuated_word": "Як"
+          },
+          {
+            "word": "справи",
+            "start": 1.04,
+            "end": 1.54,
+            "confidence": 0.9970703,
+            "punctuated_word": "справи?"
+          }
+        ],
+        "id": "3f1bf48a-d482-4908-93a1-779619583d27"
+      }
+    ]
+  }
+}
