@@ -1,41 +1,72 @@
-Lab 3 — Audio Transcription and NLP Analysis
-Цей консольний застосунок виконує транскрипцію аудіофайлу у форматі WAV за допомогою AWS Transcribe,
-визначає мову тексту, емоційне забарвлення (sentiment), а також здійснює пошук фрази і розпізнавання іменованих сутностей (NER) через spaCy.
+# Lab 3 — Audio Transcription and NLP Analysis
 
-1) Встановлення бібліотек
-Перед запуском встановіть необхідні залежності:
-bashpip install boto3 nltk langdetect spacy
+Цей консольний застосунок виконує транскрипцію аудіофайлу у форматі WAV за допомогою AWS Transcribe, визначає мову тексту, його емоційне забарвлення (sentiment), а також здійснює пошук ключової фрази та розпізнавання іменованих сутностей (NER) за допомогою бібліотеки spaCy.
+
+---
+
+## 1. Встановлення бібліотек
+
+Перед першим запуском необхідно встановити усі залежності:
+
+```bash
+pip install boto3 nltk langdetect spacy
 python -m spacy download en_core_web_sm
+```
 
-2) Налаштування AWS
-Для роботи з AWS Transcribe потрібні креденшіали:
+---
 
-- AWS_ACCESS_KEY_ID
-- AWS_SECRET_ACCESS_KEY
-- REGION
-- BUCKET_NAME
+## 2. Налаштування AWS
 
-Їх можна:
-- Вказати безпосередньо у коді:
-pythonAWS_ACCESS_KEY_ID = "YOUR_KEY"
+Для взаємодії з сервісом AWS Transcribe потрібні ваші креденшіали.
+
+- **Необхідні змінні:**
+  - `AWS_ACCESS_KEY_ID`
+  - `AWS_SECRET_ACCESS_KEY`
+  - `REGION`
+  - `BUCKET_NAME`
+
+### Спосіб 1: Вказати у коді
+
+Ви можете задати їх як константи безпосередньо у вихідному коді вашого скрипта.
+
+```python
+AWS_ACCESS_KEY_ID = "YOUR_KEY"
 AWS_SECRET_ACCESS_KEY = "YOUR_SECRET"
 REGION = "eu-north-1"
 BUCKET_NAME = "media-analysis-with-aws"
-- Або винести у файл .env з такими змінними:
+```
+
+### Спосіб 2 (рекомендований): Використовувати .env файл
+
+Створіть файл `.env` у кореневій директорії проєкту та додайте змінні у такому форматі:
+
+```dotenv
 AWS_ACCESS_KEY_ID=YOUR_KEY
 AWS_SECRET_ACCESS_KEY=YOUR_SECRET
-REGION=eu-north-1
-BUCKET_NAME=media-analysis-with-aws
+REGION=YOUR_AWS_REGION
+BUCKET_NAME=YOUR_BUCKET_NAME
+```
 
-3) Запуск застосунку
-python lab3_app.py --audio-source lab3.wav --phrase "artificial intelligence"
+---
 
-Аргументи:
---audio-source - шлях до локального WAV файлу
---phrase - фраза для пошуку у розпізнаному тексті
+## 3. Запуск застосунку
 
+Запустіть скрипт з командного рядка, вказавши шлях до аудіофайлу та фразу для пошуку.
 
-Приклад результату
+```bash
+python lab3_app.py --audio-source lab3.wav --phrase "NASA"
+```
+
+### Аргументи
+
+- `--audio-source` — шлях до вашого локального WAV файлу.
+- `--phrase` — фраза, яку потрібно знайти у розпізнаному тексті.
+
+---
+
+## Приклад результату
+
+```
 ============================================================
 TRANSCRIPTION:
 ============================================================
@@ -46,6 +77,12 @@ Sentiment: Positive
 Phrase Found at position: 0
 Named entities:
   - NASA (ORG)
+```
 
-Примітки
-- Локальний файл автоматично завантажується у ваш AWS S3 бакет перед транскрибацією.
+---
+
+## Примітки
+
+- Локальний аудіофайл автоматично завантажується у ваш AWS S3 бакет перед початком процесу транскрибації.
+- Переконайтеся, що бакет `BUCKET_NAME` існує та у вашого користувача є права на читання/запис.
+- Модель `spaCy` використовується англійською (`en_core_web_sm`). Для інших мов підберіть відповідну модель або інструменти аналізу.
