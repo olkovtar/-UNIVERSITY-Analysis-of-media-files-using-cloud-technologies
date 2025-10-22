@@ -32,8 +32,8 @@ python -m spacy download en_core_web_sm
 ```python
 AWS_ACCESS_KEY_ID = "YOUR_KEY"
 AWS_SECRET_ACCESS_KEY = "YOUR_SECRET"
-REGION = "eu-north-1"
-BUCKET_NAME = "media-analysis-with-aws"
+REGION = "YOUR_AWS_REGION"
+BUCKET_NAME = "YOUR_BUCKET_NAME"
 ```
 
 ### Спосіб 2 (рекомендований): Використовувати .env файл
