@@ -54,6 +54,11 @@ BUCKET_NAME=YOUR_BUCKET_NAME
 Запустіть скрипт з командного рядка, вказавши шлях до аудіофайлу та фразу для пошуку.
 
 ```bash
+python <lab3_app>.py --audio-source <path_to_wav_audio> --phrase <searched phrase>
+```
+Наприклад:
+
+```bash
 python lab3_app.py --audio-source lab3.wav --phrase "NASA"
 ```
 
